@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
 const imgGridStyle = {
@@ -15,8 +15,9 @@ export default () => {
         edges {
           node {
             name
+            id
             childImageSharp {
-              fixed {
+              fixed(width: 300) {
                 ...GatsbyImageSharpFixed
               }
             }
@@ -30,8 +31,10 @@ export default () => {
     <div>
       <h1>Hello gatsby-image</h1>
       <div style={imgGridStyle}>
-        {data.allFile.edges.map(edge => 
-        <Img fixed={edge.node.childImageSharp.fixed} /> 
+        {data.allFile.edges.map(edge =>
+        // Uses the queried data (strings) in order to 
+        // link to "baseURL" + "NameOfImageBeingMapped" in the Link comp
+        <Link to={edge.node.name}><Img fixed={edge.node.childImageSharp.fixed} /></Link> 
         )}
       </div>
     </div>

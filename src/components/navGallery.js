@@ -34,7 +34,11 @@ export default () => {
         {data.allFile.edges.map(edge =>
         // Uses the queried data (strings) in order to 
         // link to "baseURL" + "NameOfImageBeingMapped" in the Link comp
-        <Link to={edge.node.name}><Img fixed={edge.node.childImageSharp.fixed} /></Link> 
+        <div>
+        <Link to={edge.node.name}><Img fixed={edge.node.childImageSharp.fixed} /></Link> <p>{edge.node.name}</p> 
+      
+        </div>
+        // added a p element to show the "name" being queried
         )}
       </div>
     </div>

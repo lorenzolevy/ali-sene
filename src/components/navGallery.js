@@ -4,7 +4,9 @@ import Img from "gatsby-image"
 
 const imgGridStyle = {
   display: 'grid',
-  gridTemplateColumns: `repeat(auto-fill, 200px )` 
+  gridTemplateColumns: `repeat(3, 200px )`,
+  gridTemplateRows: `repeat(3, auto)`,
+  gridGap: '1px 9px'
 };
 
 export default () => {
@@ -17,8 +19,8 @@ export default () => {
             name
             id
             childImageSharp {
-              fixed(width: 300) {
-                ...GatsbyImageSharpFixed
+              fluid(maxWidth: 300) {
+                ...GatsbyImageSharpFluid
               }
             }
           }
@@ -35,7 +37,7 @@ export default () => {
         // Uses the queried data (strings) in order to 
         // link to "baseURL" + "NameOfImageBeingMapped" in the Link comp
         <div>
-        <Link to={edge.node.name}><Img fixed={edge.node.childImageSharp.fixed} /></Link> <p>{edge.node.name}</p> 
+        <Link to={edge.node.name}><Img fluid={edge.node.childImageSharp.fluid} /></Link> <p>{edge.node.name}</p> 
       
         </div>
         // added a p element to show the "name" being queried

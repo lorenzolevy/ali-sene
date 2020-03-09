@@ -1,0 +1,16 @@
+
+@media (max-width: 500px) {
+    html {
+        font-size: 100%;
+    }
+    .headerImgContainer {
+        
+    }
+  }
+  
+
+@media (min-width: 500px) {
+    .headerImgContainer {
+        
+    }
+}

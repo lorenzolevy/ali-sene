@@ -29,7 +29,13 @@ const Image = () => {
 
   return (
   <div className="headerImgContainer">
-    <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+    <div
+    style={{
+      display: `grid`,
+    }}
+    >
+      <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+    </div>
   </div>
   )
 }

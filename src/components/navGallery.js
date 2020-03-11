@@ -33,7 +33,11 @@ export default () => {
         {data.allFile.edges.map(edge =>
         // Uses the queried data (strings) in order to 
         // link to "baseURL" + "NameOfImageBeingMapped" in the Link comp
-        <div>
+        <div style={{
+          display: `grid`,
+          boxShadow: `1px -3px 20px 4px rgba(0, 0, 255, .2)`,
+        }}
+        >
         <Link to={edge.node.name} key={edge.node.id}><Img fluid={edge.node.childImageSharp.fluid} /></Link> <p>{edge.node.name}</p> 
       
         </div>

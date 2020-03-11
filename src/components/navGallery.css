@@ -3,6 +3,7 @@
         display: grid;
         grid-template-columns: 250px;
         grid-template-rows: none;
+        grid-gap: 5px;
         justify-content: center;
     }
   }
@@ -12,7 +13,7 @@
         display: grid;
         grid-template-columns: repeat(3, 200px );
         grid-template-rows: repeat(3, auto);
-        grid-gap: 1px 9px;
+        grid-gap: 10px;
         justify-content: center;
     }
 }

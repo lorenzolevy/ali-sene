@@ -28,20 +28,36 @@ export default () => {
     return (
     <div>
       
-      
       <div className="gridStyler">
         {data.allFile.edges.map(edge =>
         // Uses the queried data (strings) in order to 
         // link to "baseURL" + "NameOfImageBeingMapped" in the Link comp
         <div style={{
           display: `grid`,
-          boxShadow: `1px -3px 20px 4px rgba(0, 0, 255, .2)`,
+          boxShadow: `12px 15px 13px 2px rgba(0, 0, 255, .2)`,
+          justifyItems: `center`,
+          // minWidth: `310px`,
+          // minHeight: `200px`,
         }}
         >
-        <Link to={edge.node.name} key={edge.node.id}><Img fluid={edge.node.childImageSharp.fluid} /></Link> <p>{edge.node.name}</p> 
-      
+          <div style={{
+              position: `relative`,
+          }}>
+
+            <Link to={edge.node.name} key={edge.node.id}>
+              <Img
+              style={{
+              position: "absolute",
+              left: 0,
+              top: 0,
+              width: "100%",
+              height: "100%",
+              }} 
+              fluid={edge.node.childImageSharp.fluid} /></Link>
+
+          </div>
         </div>
-        // added a p element to show the "name" being queried
+        
         )}
       </div>
     </div>

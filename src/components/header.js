@@ -1,14 +1,10 @@
 import React from "react"
-import Image from "../components/image"
+import HeaderImage from "./headerImage"
 
 const Header = () => (
   <header>
 
-      <div
-      style={{
-        display: `grid`,
-        justifyItems: `center`,
-      }}><Image /></div>
+      <HeaderImage />
 
   </header>
 )

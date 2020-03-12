@@ -1,10 +1,49 @@
 import React from "react"
+import { useStaticQuery, graphql, Link } from "gatsby"
+import Img from "gatsby-image"
+import "./navGallery.css"
 
-const navGallery = () => (
+
+
+export default () => {
+
+    const data = useStaticQuery(graphql` 
+    query {
+      allFile(filter: {relativeDirectory: {eq: "navgallery"} }) {
+        edges {
+          node {
+            name
+            id
+            childImageSharp {
+              fluid(maxWidth: 300) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+    }`)
+   
+  
+    return (
     <div>
-        <p>Shit in there</p>
+      
+      
+      <div className="gridStyler">
+        {data.allFile.edges.map(edge =>
+        // Uses the queried data (strings) in order to 
+        // link to "baseURL" + "NameOfImageBeingMapped" in the Link comp
+        <div style={{
+          display: `grid`,
+          boxShadow: `1px -3px 20px 4px rgba(0, 0, 255, .2)`,
+        }}
+        >
+        <Link to={edge.node.name} key={edge.node.id}><Img fluid={edge.node.childImageSharp.fluid} /></Link> <p>{edge.node.name}</p> 
+      
+        </div>
+        // added a p element to show the "name" being queried
+        )}
+      </div>
     </div>
-)
-
-
-export default navGallery
+   ) 
+  }

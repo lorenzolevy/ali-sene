@@ -9,10 +9,16 @@ import NavGallery from "../components/navGallery"
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-  
+
+
       <NavGallery />
-    
-    <Link to="/page-2/">Go to page 2</Link>
+
+    <div style={{
+          
+          padding: `25vh 0px 10px 5vh`,
+        }}>
+      
+    <Link to="/page-2/">Contact</Link></div>
   </Layout>
 )
 

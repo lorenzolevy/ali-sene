@@ -1,6 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import "./header.css"
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -16,9 +17,9 @@ import Img from "gatsby-image"
 const Image = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
+      placeholderImage: file(relativePath: { eq: "ali-sene-new.png" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
+          fluid(maxWidth: 200) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -26,7 +27,17 @@ const Image = () => {
     }
   `)
 
-  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+  return (
+  <div className="headerImgContainer">
+    <div
+    style={{
+      display: `grid`,
+    }}
+    >
+      <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+    </div>
+  </div>
+  )
 }
 
 export default Image

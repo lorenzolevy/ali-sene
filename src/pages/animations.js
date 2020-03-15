@@ -11,7 +11,7 @@ class Animations extends React.Component {
   return(
     <Layout>
       <SEO title="Animations" />
-      <Gallery context={this.context} />
+      <Gallery />
       <Link to="/">Home</Link>
     </Layout>
 )}

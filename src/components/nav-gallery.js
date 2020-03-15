@@ -37,12 +37,6 @@ const NavGallery = () => (
                 </div>
             </div>
             
-            <div className={navGalleryStyles.gridItem6}>
-                <div>
-                    <Link to="/logos">Logos</Link>
-                </div>
-            </div>
-            
         
           </div>
 )

@@ -7,9 +7,9 @@ import SEO from "../components/seo"
 
 const Comics = () => (
   <Layout>
-    <SEO title="Animations" />
+    <SEO title="Comics" />
 
-
+      
 
     <Link to="/">Home</Link>
   </Layout>

@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Gallery from "../components/gallery"
+
 
 class Animations extends React.Component {
   render() {
@@ -11,7 +11,6 @@ class Animations extends React.Component {
   return(
     <Layout>
       <SEO title="Animations" />
-      <Gallery />
       <Link to="/">Home</Link>
     </Layout>
 )}

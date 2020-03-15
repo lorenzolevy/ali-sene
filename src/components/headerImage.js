@@ -18,7 +18,7 @@ const HeaderImage = () => {
     query {
       placeholderImage: file(relativePath: { eq: "ali-sene-new.png" }) {
         childImageSharp {
-          fluid(maxWidth: 300) {
+          fluid(maxWidth: 1800) {
             ...GatsbyImageSharpFluid
           }
         }

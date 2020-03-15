@@ -10,7 +10,7 @@ const CharactersGallery = () => (
         edges {
           node {
             childImageSharp {
-              fluid(maxWidth: 1800) {
+              fluid(maxWidth: 1200) {
                 ...GatsbyImageSharpFluid
               }
             }

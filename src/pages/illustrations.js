@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Gallery from "../components/page-galleries/illustrations-gallery"
 
-const Illustrations = () => (
+const IllustrationsPage = () => (
   <Layout>
 
     <SEO title="Illustrations" />
@@ -16,4 +16,4 @@ const Illustrations = () => (
   </Layout>
 )
 
-export default Illustrations
+export default IllustrationsPage

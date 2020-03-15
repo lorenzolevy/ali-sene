@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 
-class Animations extends React.Component {
+class AnimationsPage extends React.Component {
   render() {
   
   return(
@@ -16,4 +16,4 @@ class Animations extends React.Component {
 )}
 }
 
-export default Animations
+export default AnimationsPage

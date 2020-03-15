@@ -3,16 +3,16 @@ import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Gallery from "../components/page-galleries/characters-gallery"
+import CharactersGallery from "../components/page-galleries/characters-gallery"
 
-const Characters = () => (
+const CharactersPage = () => (
   <Layout>
     <SEO title="Characters" />
     <Link to="/">Home</Link>
-      <Gallery />
+      <CharactersGallery />
 
     
   </Layout>
 )
 
-export default Characters
+export default CharactersPage

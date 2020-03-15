@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Gallery from "../components/page-galleries/backgrounds-gallery"
 
-const Backgrounds = () => (
+const BackgroundsPage = () => (
   
   <Layout>
     <Link to="/">Home</Link>
@@ -17,4 +17,4 @@ const Backgrounds = () => (
   </Layout>
 )
 
-export default Backgrounds
+export default BackgroundsPage

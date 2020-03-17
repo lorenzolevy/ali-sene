@@ -1,53 +1,19 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import Video from './video.js'
+import videoJSON from '../../content/video-data.json'
+import animationGalleryStyles from '../../styles/animation.module.scss'
 
- () => {
+const AnimationGallery = () => (
+  <div className={animationGalleryStyles.galleryContainer}>
+    {videoJSON.videos.map((videos,index) => {
+      return <Video key={`videos_video_${index}`} videoSrcURL={videos.video} />
+    })}
+  </div>
+    
+)
 
-    const data = useStaticQuery(graphql` 
-    query {
-      allFile(filter: {relativeDirectory: {eq: "navgallery"} }) {
-        edges {
-          node {
-            name
-            id
-            childImageSharp {
-              fluid(maxWidth: 300) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
-      }
-    }`)
-  
-    return (
-    <div>
-      
-      <div style={{
-          display: `grid`,
-          gridTemplateColumns: `repeat(3, 280px)`,
-          gridTemplateRows: `repeat(2, auto)`,
-          gridGap: `2rem`,
-        }}>
+export default AnimationGallery;
 
-        {data.allFile.edges.map(edge =>
-        
-        <div style={{
-          boxShadow: `12px 15px 13px 2px rgba(0, 0, 255, .2)`,
-        }}
-        >
-            <Img fluid={edge.node.childImageSharp.fluid} />
-            <p>{edge.node.name}</p>
-            
-        </div>
-        )}
-
-      </div>
-      
-    </div>
-   ) 
-  }
 
 
 

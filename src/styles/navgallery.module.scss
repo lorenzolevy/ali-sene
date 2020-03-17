@@ -21,11 +21,17 @@
     align-items: center;
     justify-content: center;
     background-size: cover;
+    border-radius: .2rem;
     box-shadow: 12px 13px 13px 2px rgba(0, 0, 255, .2);
+    
 }
 
 .nav-grid > div > div > a {
     text-decoration: none;
+    color: whitesmoke;
+    font-family: Roboto;
+    font-size: 1.2rem;
+    text-transform: uppercase;
 }
 
 .gridItem1 {

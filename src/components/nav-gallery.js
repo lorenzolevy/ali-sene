@@ -5,40 +5,39 @@ import navGalleryStyles from "../styles/navgallery.module.scss"
 
 const NavGallery = () => ( 
 
-          <div className={navGalleryStyles.navGrid}>
-
+    <div className={navGalleryStyles.navGrid}>
+        <Link to="/illustrations">
             <div className={navGalleryStyles.gridItem1}>
-                <div>
-                    <Link to="/illustrations">Illustrations</Link>
-                </div>
+                    Illustrations
             </div>
-            
-            <div className={navGalleryStyles.gridItem2}>
-                <div>
-                    <Link to="/backgrounds">Backgrounds</Link>
-                </div>
-            </div>
-            
-            <div className={navGalleryStyles.gridItem3}>
-                <div>
-                    <Link to="/comics">Comics</Link>
-                </div>
-            </div>
-            
-            <div className={navGalleryStyles.gridItem4}>
-                <div>
-                    <Link to="/animations">Animations</Link>
-                </div>
-            </div>
-            
-            <div className={navGalleryStyles.gridItem5}>
-                <div>
-                    <Link to="/characters">Characters</Link>
-                </div>
-            </div>
-            
+        </Link>
+
+        <Link to="/backgrounds">
+            <div className={navGalleryStyles.gridItem2}>   
+                Backgrounds
+            </div>    
+        </Link>
         
-          </div>
+        <Link to="/comics">
+            <div className={navGalleryStyles.gridItem3}>
+                Comics
+                
+            </div>
+        </Link>   
+
+        <Link to="/animations">    
+            <div className={navGalleryStyles.gridItem4}>
+                Animations
+            </div>
+        </Link>
+
+        <Link to="/characters">
+            <div className={navGalleryStyles.gridItem5}>
+                Characters
+            </div>
+        </Link>   
+        
+    </div>
 )
 
 export default NavGallery

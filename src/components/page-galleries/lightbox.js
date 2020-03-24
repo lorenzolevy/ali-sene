@@ -16,6 +16,9 @@ const PreviewButton = styled.button`
     border: none;
     padding: 0;
     margin: 0;
+    > div > div {
+      padding-bottom: 100%!important;
+    }
   `;
 
 export default class Lightbox extends Component {

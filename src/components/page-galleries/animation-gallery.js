@@ -1,15 +1,28 @@
 import React from "react"
-import Video from './video.js'
-import videoJSON from '../../content/video-data.json'
-import animationGalleryStyles from '../../styles/animation.module.scss'
+import { graphql, StaticQuery } from "gatsby"
+import Videobox from '../videobox'
 
 const AnimationGallery = () => (
-  <div className={animationGalleryStyles.galleryContainer}>
-    {videoJSON.videos.map((videos,index) => {
-      return <Video key={`videos_video_${index}`} videoSrcURL={videos.video} />
-    })}
-  </div>
-    
+  <StaticQuery
+  query={graphql` 
+  query {
+    galImages: allFile(filter: {relativeDirectory: {eq: "animations"} }) {
+      edges {
+        node {
+          childImageSharp {
+            fluid(maxWidth: 1800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+  }
+
+`}
+render={data => <Videobox galImages={data.galImages.edges} />}
+
+/>
 )
 
 export default AnimationGallery;

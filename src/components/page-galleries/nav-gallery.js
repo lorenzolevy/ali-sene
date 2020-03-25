@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-// import Img from "gatsby-image"
-import navGalleryStyles from "../styles/navgallery.module.scss"
+import navGalleryStyles from "../../styles/navgallery.module.scss"
 
 const NavGallery = () => ( 
 

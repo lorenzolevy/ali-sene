@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, StaticQuery } from "gatsby"
-import Lightbox from './lightbox.js'
+import Lightbox from '../lightbox.js'
 
 const IllustrationsGallery = () => (
   <StaticQuery

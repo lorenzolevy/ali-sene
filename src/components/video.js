@@ -1,8 +1,9 @@
 import React from "react"
 
-const Video = ({ videoSrcURL }) => (
+const Video = ({ videoSrcURL, videoTitle }) => (
   <div className="video">
     <iframe
+      title={videoTitle}
       src={videoSrcURL}
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       frameBorder="0"
@@ -10,6 +11,7 @@ const Video = ({ videoSrcURL }) => (
       mozallowfullscreen="true"
       allowFullScreen
     />
+
   </div>
 )
 export default Video

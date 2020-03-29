@@ -1,8 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
+import ComicsGallery from "../components/page-galleries/comics-gallery"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+
 
 
 const ComicsPage = () => (
@@ -12,6 +14,7 @@ const ComicsPage = () => (
       
 
     <Link to="/">Home</Link>
+    <ComicsGallery />
   </Layout>
 )
 

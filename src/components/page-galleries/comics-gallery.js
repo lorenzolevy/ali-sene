@@ -1,52 +1,39 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import { graphql, StaticQuery } from "gatsby"
+import Img from 'gatsby-image'
 
-export default () => {
 
-    const data = useStaticQuery(graphql` 
-    query {
-      allFile(filter: {relativeDirectory: {eq: "navgallery"} }) {
+const ComicsGallery = () => (
+  <StaticQuery
+  query={graphql` 
+  query {
+    comics: allFile(filter: {sourceInstanceName: {eq: "comics"}}, sort: {fields: sourceInstanceName}) {
+      group(field: dir) {
         edges {
           node {
             name
-            id
             childImageSharp {
-              fluid(maxWidth: 300) {
+              fluid (maxWidth:1800) {
                 ...GatsbyImageSharpFluid
               }
             }
           }
         }
       }
-    }`)
-  
-    return (
-    <div>
-      
-      <div style={{
-          display: `grid`,
-          gridTemplateColumns: `repeat(3, 280px)`,
-          gridTemplateRows: `repeat(2, auto)`,
-          gridGap: `2rem`,
-        }}>
-
-        {data.allFile.edges.map(edge =>
-        
-        <div style={{
-          boxShadow: `12px 15px 13px 2px rgba(0, 0, 255, .2)`,
-        }}
-        >
-            <Img fluid={edge.node.childImageSharp.fluid} />
-            <p>{edge.node.name}</p>
-            
-        </div>
-        )}
-
-      </div>
-      
-    </div>
-   ) 
+    }
   }
 
+`}
+render={data => data.comics.group.map((group, index) => (
+    <div key={index}>
+    comic {index}
+    {group.edges.map(image => (
+        <Img key={image.node.childImageSharp.fluid.originalName} fluid={image.node.childImageSharp.fluid} />
+    ))}
+    </div>
+))}
 
+/>
+)
+
+export default ComicsGallery;

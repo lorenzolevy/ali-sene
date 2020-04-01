@@ -71,5 +71,4 @@ export default class Lightbox extends Component {
   }
 }
 
-console.log(VideoJSON.videos[0].video);
 

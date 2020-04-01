@@ -1,13 +1,5 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *s
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
-
 
 import Header from "./header"
 import "../styles/layout.css"
@@ -15,8 +7,6 @@ import "../styles/layout.css"
 const Layout = ({ children }) => {
   return (
     <>
-      <div className="backGroundProp">
-      
       <Header />
       <div
         style={{
@@ -29,8 +19,6 @@ const Layout = ({ children }) => {
         <footer>
           © {new Date().getFullYear()} Ali Sene
         </footer>
-      </div>
-
       </div>
     </>
   )

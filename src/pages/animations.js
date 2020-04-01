@@ -9,7 +9,7 @@ const BackgroundsPage = ({data}) => (
   
   <Layout>
     <Link to="/">Home</Link>
-    <SEO title="Backgrounds" />
+    <SEO title="Animations" />
       
       <Videobox galImages={data.galImages.edges} />
 

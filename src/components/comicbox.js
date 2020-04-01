@@ -12,7 +12,6 @@ const Grid = styled.div`
 const Comicbox = ({groupedGals}) => {
     const comicFirstImages = groupedGals.map(group => group.edges[0])
     const listOfImageLists = groupedGals
-    console.log(listOfImageLists)
     return(
         <Grid>
             {comicFirstImages.map(image => 
@@ -23,4 +22,4 @@ const Comicbox = ({groupedGals}) => {
 }
 
 
-export default Comicbox;
+export default Comicbox

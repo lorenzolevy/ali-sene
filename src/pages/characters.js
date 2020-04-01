@@ -1,18 +1,37 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import CharactersGallery from "../components/page-galleries/characters-gallery"
+import Lightbox from "../components/lightbox"
 
-const CharactersPage = () => (
+const CharactersPage = ({data}) => (
+  
   <Layout>
-    <SEO title="Characters" />
     <Link to="/">Home</Link>
-      <CharactersGallery />
+    <SEO title="Characters" />
+      
+      <Lightbox galImages={data.galImages.edges} />
 
     
   </Layout>
 )
+
+export const query=graphql` 
+query {
+  galImages: allFile(filter: {relativeDirectory: {eq: "characters"} }) {
+    edges {
+      node {
+        childImageSharp {
+          fluid(maxWidth: 1800) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+}
+
+`
 
 export default CharactersPage

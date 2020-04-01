@@ -1,21 +1,38 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import AnimationGallery from "../components/page-galleries/animation-gallery"
+import Videobox from "../components/videobox"
 
-
-class AnimationsPage extends React.Component {
-  render() {
+const BackgroundsPage = ({data}) => (
   
-  return(
-    <Layout>
-      <SEO title="Animations" />
-      <Link to="/">Home</Link>
-      <AnimationGallery />
-    </Layout>
-)}
+  <Layout>
+    <Link to="/">Home</Link>
+    <SEO title="Backgrounds" />
+      
+      <Videobox galImages={data.galImages.edges} />
+
+    
+  </Layout>
+)
+
+export const query=graphql` 
+query {
+  galImages: allFile(filter: {relativeDirectory: {eq: "animations"} }) {
+    edges {
+      node {
+        childImageSharp {
+          fluid(maxWidth: 1800) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
 }
 
-export default AnimationsPage
+`
+
+export default BackgroundsPage
+

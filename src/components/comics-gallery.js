@@ -1,7 +1,14 @@
 import React from "react"
 import { graphql, StaticQuery } from "gatsby"
 import Img from 'gatsby-image'
+import styled from 'styled-components'
 
+
+const Grid = styled.div`
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: .6rem;
+    `;
 
 const ComicsGallery = () => (
   <StaticQuery
@@ -24,16 +31,16 @@ const ComicsGallery = () => (
   }
 
 `}
-render={data => data.comics.group.map((group, index) => (
-    <div key={index}>
-    comic {index}
-    {group.edges.map(image => (
-        <Img key={image.node.childImageSharp.fluid.originalName} fluid={image.node.childImageSharp.fluid} />
-    ))}
-    </div>
+render={data => 
+<Grid> {data.comics.group.map((group, index) => (
+ <div key={index}>
+  <Img key={index} fluid={group.edges[0].node.childImageSharp.fluid} />
+ </div>
 ))}
-
+</Grid>
+}
 />
 )
+
 
 export default ComicsGallery;

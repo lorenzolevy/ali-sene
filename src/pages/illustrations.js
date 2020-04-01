@@ -1,19 +1,37 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Gallery from "../components/page-galleries/illustrations-gallery"
+import Lightbox from "../components/lightbox"
 
-const IllustrationsPage = () => (
+const IllustrationsPage = ({data}) => (
+  
   <Layout>
-
-    <SEO title="Illustrations" />
     <Link to="/">Home</Link>
-      <Gallery />
+    <SEO title="Illustrations" />
+      
+      <Lightbox galImages={data.galImages.edges} />
 
     
   </Layout>
 )
+
+export const query=graphql` 
+query {
+  galImages: allFile(filter: {relativeDirectory: {eq: "illustrations"} }) {
+    edges {
+      node {
+        childImageSharp {
+          fluid(maxWidth: 1800) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+}
+
+`
 
 export default IllustrationsPage

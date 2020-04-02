@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Lightbox from "../components/lightbox"
+import Gallery from "../components/gallery"
 
 const CharactersPage = ({data}) => (
   
@@ -11,7 +11,7 @@ const CharactersPage = ({data}) => (
     <Link to="/">Home</Link>
     <SEO title="Characters" />
       
-      <Lightbox galImages={data.galImages.edges} />
+      <Gallery galImages={data.galImages.edges} />
 
     
   </Layout>
@@ -22,6 +22,7 @@ query {
   galImages: allFile(filter: {relativeDirectory: {eq: "characters"} }) {
     edges {
       node {
+        publicURL
         childImageSharp {
           fluid(maxWidth: 1800) {
             ...GatsbyImageSharpFluid

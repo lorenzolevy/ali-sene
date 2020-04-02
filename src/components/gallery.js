@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
-import { Dialog } from '@reach/dialog';
+import { Lightbox } from 'react-modal-image';
 import '@reach/dialog/styles.css';
 
 const LightBoxContainer = styled.div`
@@ -11,7 +11,7 @@ const LightBoxContainer = styled.div`
     grid-gap: .6rem;
     `;
 
-const PreviewButton = styled.button`
+const PreviewButton = styled.div`
     background: transparent;
     border: none;
     padding: 0;
@@ -24,7 +24,7 @@ const PreviewButton = styled.button`
     }
   `;
 
-export default class Lightbox extends Component {
+export default class Gallery extends Component {
   static propTypes = {
     galImages: PropTypes.array.isRequired,
   }
@@ -54,12 +54,13 @@ export default class Lightbox extends Component {
         ))}
       </LightBoxContainer>
         {showLightbox && (
-        <Dialog allowPinchZoom={true} onDismiss={() => this.setState({ showLightbox: false })}>
-          <Img fluid={selectedImage.node.childImageSharp.fluid} />
-          <button type="button" onClick={() => this.setState({ showLightbox: false })}>
-            Close
-          </button>
-        </Dialog>
+          <Lightbox
+            hideDownload={true}
+            hideZoom={true}
+            large={selectedImage.node.publicURL}
+            onClose={()=> this.setState({ showLightbox: false })}
+          />
+
         )}
       </Fragment>
     );

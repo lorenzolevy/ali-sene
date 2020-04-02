@@ -637,3 +637,7 @@ body
   width: 100%;
 }
 
+.__react_modal_image__header {
+  background-color: transparent!important;
+}
+

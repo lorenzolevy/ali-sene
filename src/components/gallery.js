@@ -41,7 +41,6 @@ export default class Gallery extends Component {
   render() {
     const { galImages } = this.props;
     const { showLightbox, imageIndex } = this.state;
-    const galSrcArray = galImages.map(image=>image.node.publicURL);
     return (
      <Fragment>
       <LightBoxContainer>
@@ -56,7 +55,7 @@ export default class Gallery extends Component {
       </LightBoxContainer>
       <FsLightbox
         toggler={showLightbox}
-        sources={galSrcArray}
+        sources={galImages.map(image=>image.node.publicURL)}
         sourceIndex={imageIndex}
         loadOnlyCurrentSource={true}
         />

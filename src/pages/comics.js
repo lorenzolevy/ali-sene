@@ -17,10 +17,11 @@ const ComicsPage = ({data}) => (
 
 export const query=graphql` 
 query {
-  comics: allFile(filter: {sourceInstanceName: {eq: "comics"}}, sort: {fields: sourceInstanceName}) {
+  comics: allFile(filter: {sourceInstanceName: {eq: "comics"}}, sort: {fields: relativePath, order: ASC}) {
     group(field: dir) {
       edges {
         node {
+          publicURL
           name
           childImageSharp {
             fluid (maxWidth:1800) {

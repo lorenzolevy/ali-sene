@@ -19,7 +19,9 @@ const BackgroundsPage = ({data}) => (
 
 export const query=graphql` 
 query {
-  galImages: allFile(filter: {relativeDirectory: {eq: "animations"} }) {
+  galImages: allFile(
+    filter: {relativeDirectory: {eq: "animations"} },
+    sort: {order: ASC, fields: relativePath}) {
     edges {
       node {
         childImageSharp {

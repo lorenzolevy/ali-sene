@@ -3,15 +3,15 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Videobox from "../components/videobox"
+import VideoGallery from "../components/videogallery"
 
 const BackgroundsPage = ({data}) => (
   
   <Layout>
     <Link to="/">Home</Link>
     <SEO title="Animations" />
+    <VideoGallery galImages={data.galImages.edges} />
       
-      <Videobox galImages={data.galImages.edges} />
 
     
   </Layout>

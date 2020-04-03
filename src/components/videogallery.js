@@ -5,13 +5,16 @@ import styled from 'styled-components';
 
 import FsLightbox from 'fslightbox-react';
 
+
+import VideoJSON from "../content/video-data.json"
+
 const LightBoxContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: .6rem;
     `;
 
-const PreviewButton = styled.div`
+const PreviewButton = styled.button`
     background: transparent;
     border: none;
     padding: 0;
@@ -24,7 +27,7 @@ const PreviewButton = styled.div`
     }
   `;
 
-export default class Gallery extends Component {
+export default class VideoGallery extends Component {
   static propTypes = {
     galImages: PropTypes.array.isRequired,
   }
@@ -39,15 +42,18 @@ export default class Gallery extends Component {
 
 
   render() {
+    // Transform JSON OBJ based data into an array of sourceStrings
+    const videoList = VideoJSON.videos.map((video)=>video.video)
     const { galImages } = this.props;
     const { showLightbox, imageIndex } = this.state;
-    const galSrcArray = galImages.map(image=>image.node.publicURL);
+    
     return (
      <Fragment>
       <LightBoxContainer>
         {galImages.map((image, index) => (
          <PreviewButton
             key={image.node.childImageSharp.fluid.src}
+            type="button"
             onClick={() => this.setState({ showLightbox: !showLightbox, imageIndex: index })}
             >
             <Img fluid={image.node.childImageSharp.fluid} />
@@ -56,7 +62,7 @@ export default class Gallery extends Component {
       </LightBoxContainer>
       <FsLightbox
         toggler={showLightbox}
-        sources={galSrcArray}
+        sources={videoList}
         sourceIndex={imageIndex}
         loadOnlyCurrentSource={true}
         />

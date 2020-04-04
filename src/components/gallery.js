@@ -21,7 +21,7 @@ const PreviewButton = styled.div`
     > div > div {
         padding-bottom: 100%!important;
     }
-  `;
+`;
 
 export default class Gallery extends Component {
   static propTypes = {

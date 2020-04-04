@@ -47,7 +47,7 @@ const Grid = styled.div`
     > a > div {
         height: 300px;
     }
-`
+`;
 const StyledLink = styled(Link)`
 
 `;

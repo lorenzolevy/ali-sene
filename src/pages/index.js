@@ -1,24 +1,48 @@
 import React from "react"
 import { Link } from "gatsby"
-
 import Layout from "../components/layout"
-// import Image from "../components/image"
+
 import SEO from "../components/seo"
-import NavGallery from "../components/navGallery"
+import navGalleryStyles from "../styles/navgallery.module.scss"
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
 
+    <div className={navGalleryStyles.navGrid}>
+        <Link to="/illustrations">
+            <div className={navGalleryStyles.gridItem1}>
+                    Illustrations
+            </div>
+        </Link>
 
-      <NavGallery />
+        <Link to="/backgrounds">
+            <div className={navGalleryStyles.gridItem2}>   
+                Backgrounds
+            </div>    
+        </Link>
+        
+        <Link to="/comics">
+            <div className={navGalleryStyles.gridItem3}>
+                Comics
+                
+            </div>
+        </Link>   
 
-    <div style={{
-          
-          padding: `25vh 0px 10px 5vh`,
-        }}>
-      
-    <Link to="/page-2/">Contact</Link></div>
+        <Link to="/animations">    
+            <div className={navGalleryStyles.gridItem4}>
+                Animations
+            </div>
+        </Link>
+
+        <Link to="/characters">
+            <div className={navGalleryStyles.gridItem5}>
+                Characters
+            </div>
+        </Link>   
+        
+    </div>
+
   </Layout>
 )
 

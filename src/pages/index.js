@@ -1,49 +1,120 @@
 import React from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
-
+import styled from "styled-components"
 import SEO from "../components/seo"
-import navGalleryStyles from "../styles/navgallery.module.scss"
+import BgImg from "gatsby-background-image"
 
-const IndexPage = () => (
+const Grid = styled.div`
+    @media (max-width: 580px) {
+        display: grid;
+        grid-template-rows: repeat(5, 300px);
+        grid-gap: 20px;
+    }
+    @media (max-width: 980px) and (min-width: 580px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+
+    }
+    @media (min-width: 980px) {
+        display: grid;
+        grid-template-columns: repeat(3, 300px);
+        grid-gap: .6rem;      
+    }
+    > a > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-size: cover;
+        border-radius: .3rem;
+        box-shadow: 12px 13px 13px 2px rgba(0, 0, 255, .2); 
+        &:before {
+            border-radius: .3rem;
+        }
+        &:after {
+            border-radius: .3rem;
+        }        
+    }
+    > a {
+        text-decoration: none;
+        color: whitesmoke;
+        font-family: Roboto;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: .05rem;
+    }
+    > a > div {
+        height: 300px;
+    }
+`
+const StyledLink = styled(Link)`
+
+`;
+
+const IndexPage = ({data}) => (
   <Layout>
     <SEO title="Home" />
-
-    <div className={navGalleryStyles.navGrid}>
-        <Link to="/illustrations">
-            <div className={navGalleryStyles.gridItem1}>
-                    Illustrations
-            </div>
-        </Link>
+    
+    <Grid>
+        <StyledLink to="/illustrations">
+            <BgImg
+                fluid={data.galImages.edges[0].node.childImageSharp.fluid}
+            >
+                    ILLUSTRATION
+            </BgImg>
+        </StyledLink>
 
         <Link to="/backgrounds">
-            <div className={navGalleryStyles.gridItem2}>   
-                Backgrounds
-            </div>    
+            <BgImg
+                fluid={data.galImages.edges[1].node.childImageSharp.fluid}
+            >
+                    BACKGROUNDS
+            </BgImg>  
         </Link>
         
         <Link to="/comics">
-            <div className={navGalleryStyles.gridItem3}>
-                Comics
-                
-            </div>
+            <BgImg
+                fluid={data.galImages.edges[2].node.childImageSharp.fluid}
+            >
+                    COMICS
+            </BgImg>
         </Link>   
 
         <Link to="/animations">    
-            <div className={navGalleryStyles.gridItem4}>
-                Animations
-            </div>
+            <BgImg
+                fluid={data.galImages.edges[3].node.childImageSharp.fluid}
+            >
+                    ANIMATIONS
+            </BgImg>
         </Link>
 
         <Link to="/characters">
-            <div className={navGalleryStyles.gridItem5}>
-                Characters
-            </div>
+            <BgImg
+                fluid={data.galImages.edges[4].node.childImageSharp.fluid}
+            >
+                    CHARACTERS
+            </BgImg>
         </Link>   
-        
-    </div>
+    </Grid>
 
   </Layout>
 )
 
+export const query=graphql` 
+query {
+  galImages: allFile(filter: {relativeDirectory: {eq: "navgallery"}}, sort: {order: ASC, fields: relativePath}) {
+    edges {
+      node {
+        publicURL
+        childImageSharp {
+          fluid(maxWidth: 1800) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+}
+`
 export default IndexPage

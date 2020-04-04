@@ -6,11 +6,15 @@ import styled from 'styled-components';
 import FsLightbox from 'fslightbox-react';
 
 const LightBoxContainer = styled.div`
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: .6rem;
-    `;
-
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+grid-auto-rows: 12rem;
+grid-gap: 0.8rem;
+@media (min-width: 1280px) {
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  grid-auto-rows: 17rem;
+}
+`;
 const PreviewButton = styled.div`
     background: transparent;
     border: none;

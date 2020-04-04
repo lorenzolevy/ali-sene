@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
-import styled from 'styled-components'
 
 import FsLightbox from 'fslightbox-react'
 import Grid from './grid'

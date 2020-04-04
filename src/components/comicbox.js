@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 
-
 import FsLightbox from 'fslightbox-react'
 import Grid from './grid'
 import Tile from './tile'

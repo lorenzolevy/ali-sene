@@ -1,9 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
-import Layout from "../components/layout"
-import styled from "styled-components"
-import SEO from "../components/seo"
 import BgImg from "gatsby-background-image"
+import styled from "styled-components"
+
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 const Grid = styled.div`
     @media (max-width: 580px) {

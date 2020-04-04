@@ -1,27 +1,10 @@
-import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
-import Img from 'gatsby-image';
-import styled from 'styled-components';
+import React, { Component, Fragment } from 'react'
+import PropTypes from 'prop-types'
+import Img from 'gatsby-image'
 
-import FsLightbox from 'fslightbox-react';
-
-const LightBoxContainer = styled.div`
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-grid-gap: 0.6rem;
-`;
-const PreviewButton = styled.div`
-    background: transparent;
-    border: none;
-    padding: 0;
-    margin: 0;
-    > div {
-        border-radius: .3rem;
-    }
-    > div > div {
-        padding-bottom: 100%!important;
-    }
-`;
+import FsLightbox from 'fslightbox-react'
+import Grid from './grid'
+import Tile from './tile'
 
 export default class Gallery extends Component {
   static propTypes = {
@@ -42,16 +25,16 @@ export default class Gallery extends Component {
     const { showLightbox, imageIndex } = this.state;
     return (
      <Fragment>
-      <LightBoxContainer>
+      <Grid>
         {galImages.map((image, index) => (
-         <PreviewButton
+         <Tile
             key={image.node.childImageSharp.fluid.src}
             onClick={() => this.setState({ showLightbox: !showLightbox, imageIndex: index })}
             >
             <Img fluid={image.node.childImageSharp.fluid} />
-         </PreviewButton>
+         </Tile>
         ))}
-      </LightBoxContainer>
+      </Grid>
       <FsLightbox
         toggler={showLightbox}
         sources={galImages.map(image=>image.node.publicURL)}

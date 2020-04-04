@@ -1,31 +1,13 @@
-import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
-import Img from 'gatsby-image';
-import styled from 'styled-components';
+import React, { Component, Fragment } from 'react'
+import PropTypes from 'prop-types'
+import Img from 'gatsby-image'
+import styled from 'styled-components'
 
-import FsLightbox from 'fslightbox-react';
-
+import FsLightbox from 'fslightbox-react'
+import Grid from './grid'
+import Tile from './tile'
 
 import VideoJSON from "../content/video-data.json"
-
-const LightBoxContainer = styled.div`
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: .6rem;
-    `;
-
-const PreviewButton = styled.button`
-    background: transparent;
-    border: none;
-    padding: 0;
-    margin: 0;
-    > div {
-        border-radius: .3rem;
-    }
-    > div > div {
-        padding-bottom: 100%!important;
-    }
-  `;
 
 export default class VideoGallery extends Component {
   static propTypes = {
@@ -39,8 +21,6 @@ export default class VideoGallery extends Component {
       imageIndex : 0,
   };
 }
-
-
   render() {
     // Transform JSON OBJ based data into an array of sourceStrings
     const videoList = VideoJSON.videos.map((video)=>video.video)
@@ -49,17 +29,17 @@ export default class VideoGallery extends Component {
     
     return (
      <Fragment>
-      <LightBoxContainer>
+      <Grid>
         {galImages.map((image, index) => (
-         <PreviewButton
+         <Tile
             key={image.node.childImageSharp.fluid.src}
             type="button"
             onClick={() => this.setState({ showLightbox: !showLightbox, imageIndex: index })}
             >
             <Img fluid={image.node.childImageSharp.fluid} />
-         </PreviewButton>
+         </Tile>
         ))}
-      </LightBoxContainer>
+      </Grid>
       <FsLightbox
         toggler={showLightbox}
         sources={videoList}

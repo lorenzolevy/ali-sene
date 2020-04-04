@@ -10,6 +10,13 @@ const Heading = styled.h1`
   padding-top: 1.2rem;
 
 `
+const StyledHeader = styled.header`
+  padding-top: 3rem;
+  display: block;
+  max-width: 400px;
+  min-width: 310px;
+  margin: 0 auto;
+`
 const Header = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -24,18 +31,12 @@ const Header = () => {
   `)
 
   return (
-    <header style={{
-      paddingTop: `3rem`,
-      display: `block`,
-      maxWidth: `400px`,
-      minWidth: `310px`,
-      margin: `0 auto`,
-    }}>
+    <StyledHeader>
       <Link  to="/">
         <Img fluid={data.placeholderImage.childImageSharp.fluid} />
       </Link>
       <Heading>STORY ARTIST</Heading> 
-    </header>
+    </StyledHeader>
   )
 }
 

@@ -8,20 +8,20 @@ import BgImg from "gatsby-background-image"
 const Grid = styled.div`
     @media (max-width: 580px) {
         display: grid;
-        grid-template-rows: repeat(5, 300px);
-        grid-gap: 20px;
+        grid-template-rows: repeat(5, 1fr);
     }
     @media (max-width: 980px) and (min-width: 580px) {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-gap: 20px;
+        
 
     }
     @media (min-width: 980px) {
         display: grid;
         grid-template-columns: repeat(3, 300px);
-        grid-gap: .6rem;      
+            
     }
+    grid-gap: .6rem;  
     > a > div {
         display: flex;
         align-items: center;

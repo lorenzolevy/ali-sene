@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
-
 import FsLightbox from 'fslightbox-react';
 
 const LightBoxContainer = styled.div`
@@ -59,6 +58,7 @@ export default class Gallery extends Component {
         toggler={showLightbox}
         sources={groupedGals[imageIndex].edges.map(image => image.node.publicURL)}
         key={imageIndex}
+        disableLocalStorage={true}
         />
     </div>
     );

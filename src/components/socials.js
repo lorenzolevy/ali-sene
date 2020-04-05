@@ -17,7 +17,7 @@ const Socials = () => (
         </a>
         <a href="mailto:alisene28@gmail.com">
             alisene28@gmail.com
-            <FontAwesomeIcon icon="envelope" />
+            <FontAwesomeIcon icon={["far", "envelope"]}/>
         </a>
     </TopRight>
 )

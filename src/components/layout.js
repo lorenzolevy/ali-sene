@@ -12,7 +12,8 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
 
-library.add(fab, faArrowLeft, faEnvelope);
+library.add(fab, faArrowLeft);
+library.add(faEnvelope)
 
 const Layout = ({ children }) => {
   return (

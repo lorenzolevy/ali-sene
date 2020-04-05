@@ -8,12 +8,8 @@ import Gallery from "../components/gallery"
 const CharactersPage = ({data}) => (
   
   <Layout>
-    <Link to="/">Home</Link>
     <SEO title="Characters" />
-      
       <Gallery galImages={data.galImages.edges} />
-
-    
   </Layout>
 )
 

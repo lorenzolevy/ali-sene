@@ -3,12 +3,11 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import VideoGallery from "../components/videogallery"
+import VideoGallery from "../components/video-gallery"
 
-const BackgroundsPage = ({data}) => (
+const AnimationsPage = ({data}) => (
   
   <Layout>
-    <Link to="/">Home</Link>
     <SEO title="Animations" />
     <VideoGallery galImages={data.galImages.edges} />
       
@@ -36,5 +35,5 @@ query {
 
 `
 
-export default BackgroundsPage
+export default AnimationsPage
 

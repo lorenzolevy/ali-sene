@@ -8,7 +8,6 @@ import Gallery from "../components/gallery"
 const BackgroundsPage = ({data}) => (
   
   <Layout>
-    <Link to="/">Home</Link>
     <SEO title="Backgrounds" />
       
       <Gallery galImages={data.galImages.edges} />

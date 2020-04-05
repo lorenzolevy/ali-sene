@@ -1,4 +1,5 @@
 import React from "react"
+import Socials from "./socials"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
@@ -11,12 +12,16 @@ const Heading = styled.h1`
 
 `
 const StyledHeader = styled.header`
-  padding-top: 3rem;
+  padding-top: 2rem;
+  position: relative;
+`
+const StyledLink = styled(Link)`
   display: block;
   max-width: 400px;
   min-width: 310px;
   margin: 0 auto;
-`
+`;
+
 const Header = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -32,10 +37,11 @@ const Header = () => {
 
   return (
     <StyledHeader>
-      <Link  to="/">
+      <Socials />
+      <StyledLink to="/">
         <Img fluid={data.placeholderImage.childImageSharp.fluid} />
-      </Link>
-      <Heading>STORY ARTIST</Heading> 
+      </StyledLink>
+      <Heading>STORY ARTIST</Heading>
     </StyledHeader>
   )
 }

@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import Comicbox from "../components/comicbox"
+import Comicbox from "../components/comic-box"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -10,7 +10,6 @@ import SEO from "../components/seo"
 const ComicsPage = ({data}) => (
   <Layout>
     <SEO title="Comics" />
-    <Link to="/">Home</Link>
     <Comicbox groupedGals={data.comics.group}/>
   </Layout>
 )

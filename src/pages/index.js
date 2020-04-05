@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 import BgImg from "gatsby-background-image"
 import styled from "styled-components"
 
@@ -50,8 +50,30 @@ const Grid = styled.div`
     }
 `;
 const StyledLink = styled(Link)`
-
+    text-decoration: none;
+    color: whitesmoke;
+    font-family: Roboto;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    
+    
 `;
+
+const StyledText = styled.div`
+    background-color: hsla(262, 46%, 51%, 0.3);
+    border-radius: 0.3rem;
+    height: 100%;
+    width: 100%;
+    padding: 0 .4rem;
+    letter-spacing: .06rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    &:hover {
+        background-color: hsla(262, 46%, 45%, 0.4);
+    }
+`
 
 const IndexPage = ({data}) => (
   <Layout>
@@ -62,7 +84,7 @@ const IndexPage = ({data}) => (
             <BgImg
                 fluid={data.galImages.edges[0].node.childImageSharp.fluid}
             >
-                    ILLUSTRATION
+                    <StyledText>ILLUSTRATION</StyledText>
             </BgImg>
         </StyledLink>
 
@@ -70,7 +92,7 @@ const IndexPage = ({data}) => (
             <BgImg
                 fluid={data.galImages.edges[1].node.childImageSharp.fluid}
             >
-                    BACKGROUNDS
+                    <StyledText>BACKGROUNDS</StyledText>
             </BgImg>  
         </Link>
         
@@ -78,7 +100,7 @@ const IndexPage = ({data}) => (
             <BgImg
                 fluid={data.galImages.edges[2].node.childImageSharp.fluid}
             >
-                    COMICS
+                    <StyledText>COMICS</StyledText>
             </BgImg>
         </Link>   
 
@@ -86,7 +108,7 @@ const IndexPage = ({data}) => (
             <BgImg
                 fluid={data.galImages.edges[3].node.childImageSharp.fluid}
             >
-                    ANIMATIONS
+                    <StyledText>ANIMATIONS</StyledText>
             </BgImg>
         </Link>
 
@@ -94,7 +116,7 @@ const IndexPage = ({data}) => (
             <BgImg
                 fluid={data.galImages.edges[4].node.childImageSharp.fluid}
             >
-                    CHARACTERS
+                    <StyledText>CHARACTERS</StyledText>
             </BgImg>
         </Link>   
     </Grid>

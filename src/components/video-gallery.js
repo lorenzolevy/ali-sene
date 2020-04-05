@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import Img from 'gatsby-image'
 
+import BackArrow from './back-arrow'
 import FsLightbox from 'fslightbox-react'
 import Grid from './grid'
 import Tile from './tile'
+import StyledImg from './gallery-img'
 
 import VideoJSON from "../content/video-data.json"
 
@@ -21,13 +22,11 @@ export default class VideoGallery extends Component {
   };
 }
   render() {
-    // Transform JSON OBJ based data into an array of sourceStrings
-    const videoList = VideoJSON.videos.map((video)=>video.video)
     const { galImages } = this.props;
     const { showLightbox, imageIndex } = this.state;
-    
     return (
      <Fragment>
+       <BackArrow />
       <Grid>
         {galImages.map((image, index) => (
          <Tile
@@ -35,13 +34,13 @@ export default class VideoGallery extends Component {
             type="button"
             onClick={() => this.setState({ showLightbox: !showLightbox, imageIndex: index })}
             >
-            <Img fluid={image.node.childImageSharp.fluid} />
+            <StyledImg fluid={image.node.childImageSharp.fluid} />
          </Tile>
         ))}
       </Grid>
       <FsLightbox
         toggler={showLightbox}
-        sources={videoList}
+        sources={VideoJSON.videos.map((video)=>video.video)}
         sourceIndex={imageIndex}
         loadOnlyCurrentSource={true}
         />

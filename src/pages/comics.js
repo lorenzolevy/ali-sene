@@ -4,12 +4,18 @@ import Comicbox from "../components/comic-box"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import StyledTitle from "../components/page-title"
+import BackArrow from '../components/back-arrow'
 
 
 
 const ComicsPage = ({data}) => (
   <Layout>
     <SEO title="Comics" />
+    <div style={{display:"flex", justifyContent:"space-between"}}>
+    <BackArrow />
+    <StyledTitle>comics</StyledTitle>
+    </div>
     <Comicbox groupedGals={data.comics.group}/>
   </Layout>
 )

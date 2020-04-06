@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 
-import BackArrow from './back-arrow'
 import FsLightbox from 'fslightbox-react'
 import Grid from './grid'
 import Tile from './tile'
@@ -26,7 +25,6 @@ export default class VideoGallery extends Component {
     const { showLightbox, imageIndex } = this.state;
     return (
      <Fragment>
-       <BackArrow />
       <Grid>
         {galImages.map((image, index) => (
          <Tile

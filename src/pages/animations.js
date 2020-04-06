@@ -4,11 +4,18 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import VideoGallery from "../components/video-gallery"
+import StyledTitle from "../components/page-title"
+import BackArrow from '../components/back-arrow'
 
 const AnimationsPage = ({data}) => (
   
   <Layout>
     <SEO title="Animations" />
+    <div style={{display:"flex", justifyContent:"space-between"}}>
+    <BackArrow />
+    <StyledTitle>animations</StyledTitle>
+    </div>
+    
     <VideoGallery galImages={data.galImages.edges} />
       
 

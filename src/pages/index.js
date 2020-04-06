@@ -40,7 +40,7 @@ const Grid = styled.div`
     > a {
         text-decoration: none;
         color: whitesmoke;
-        font-family: Roboto;
+        font-family: 'Roboto';
         font-size: 1.2rem;
         text-transform: uppercase;
         letter-spacing: .05rem;

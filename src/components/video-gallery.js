@@ -42,7 +42,6 @@ export default class VideoGallery extends Component {
         toggler={showLightbox}
         sources={VideoJSON.videos.map((video)=>video.video)}
         sourceIndex={imageIndex}
-        loadOnlyCurrentSource={true}
         />
       
       </Fragment>

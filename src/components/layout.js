@@ -27,7 +27,12 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
-        <footer>
+        <footer style={{  
+          color: 'whitesmoke',
+          textAlign: 'center',
+          fontFamily: 'roboto',
+          paddingTop: ".9rem",
+          }}>
           © {new Date().getFullYear()} Ali Sene
         </footer>
       </div>

@@ -42,7 +42,6 @@ export default class Gallery extends Component {
         toggler={showLightbox}
         sources={galImages.map(image=>image.node.publicURL)}
         sourceIndex={imageIndex}
-        loadOnlyCurrentSource={true}
         />
         {console.log(galImages.map(image=>image.node.publicURL))}
       </Fragment>

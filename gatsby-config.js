@@ -2,8 +2,9 @@ module.exports = {
   siteMetadata: {
     title: `Ali Sene Art`,
     description: `A collection of illustrations, animations, and comics by Ali Sene.`,
-    image: `images/ali-icon.png`,
+    image: `/static/ali-icon.png`,
     author: `@lorenzolevy`,
+    url: `https://www.aliseneart.com`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,

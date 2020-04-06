@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import BackArrow from './back-arrow'
 import FsLightbox from 'fslightbox-react'
 import Grid from './grid'
 import Tile from './tile'

@@ -7,8 +7,9 @@ import Grid from './grid'
 import Tile from './tile'
 import StyledImg from './gallery-img'
 
+import VideoJSON from "../content/video-data.json"
 
-export default class Gallery extends Component {
+export default class VideoGallery extends Component {
   static propTypes = {
     galImages: PropTypes.array.isRequired,
   }
@@ -20,8 +21,6 @@ export default class Gallery extends Component {
       imageIndex : 0,
   };
 }
-
-  
   render() {
     const { galImages } = this.props;
     const { showLightbox, imageIndex } = this.state;
@@ -32,6 +31,7 @@ export default class Gallery extends Component {
         {galImages.map((image, index) => (
          <Tile
             key={image.node.childImageSharp.fluid.src}
+            type="button"
             onClick={() => this.setState({ showLightbox: !showLightbox, imageIndex: index })}
             >
             <StyledImg fluid={image.node.childImageSharp.fluid} />
@@ -40,16 +40,12 @@ export default class Gallery extends Component {
       </Grid>
       <FsLightbox
         toggler={showLightbox}
-        sources={galImages.map(image=>image.node.publicURL)}
+        sources={VideoJSON.videos.map((video)=>video.video)}
         sourceIndex={imageIndex}
         loadOnlyCurrentSource={true}
         />
-        {console.log(galImages.map(image=>image.node.publicURL))}
+      
       </Fragment>
-  
     );
   }
-  
 }
-
-

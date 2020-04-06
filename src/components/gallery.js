@@ -21,7 +21,7 @@ export default class Gallery extends Component {
   };
 }
 
-
+  
   render() {
     const { galImages } = this.props;
     const { showLightbox, imageIndex } = this.state;
@@ -44,8 +44,12 @@ export default class Gallery extends Component {
         sourceIndex={imageIndex}
         loadOnlyCurrentSource={true}
         />
-      
+        {console.log(galImages.map(image=>image.node.publicURL))}
       </Fragment>
+  
     );
   }
+  
 }
+
+

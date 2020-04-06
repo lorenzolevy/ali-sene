@@ -4,16 +4,18 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
 
-const Heading = styled.h1`
+const Heading = styled.h2`
   font-family: Roboto;
   color: whitesmoke;
   text-align: center;
-  padding-top: 1.2rem;
-
+  padding-top: .3rem;
+  font-size: 2.3rem;
 `
 const StyledHeader = styled.header`
   padding-top: 2rem;
   position: relative;
+  max-width: 400px;
+  margin: 0 auto;
 `
 const StyledLink = styled(Link)`
   display: block;
@@ -25,7 +27,7 @@ const StyledLink = styled(Link)`
 const Header = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "ali-sene-new.png" }) {
+      file(relativePath: { eq: "ali-sene-new.png" }) {
         childImageSharp {
           fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid
@@ -37,11 +39,12 @@ const Header = () => {
 
   return (
     <StyledHeader>
-      <Socials />
+      
       <StyledLink to="/">
-        <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+        <Img fluid={data.file.childImageSharp.fluid} />
       </StyledLink>
-      <Heading>STORY ARTIST</Heading>
+      <Heading>STORY ARTIST<Socials /></Heading>
+      
     </StyledHeader>
   )
 }

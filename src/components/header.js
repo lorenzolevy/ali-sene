@@ -5,11 +5,11 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 
 const Heading = styled.h2`
-  font-family: Roboto;
+  font-family: 'Roboto';
   color: whitesmoke;
   text-align: center;
   padding-top: .3rem;
-  font-size: 2.3rem;
+  font-size: 2.1rem;
 `
 const StyledHeader = styled.header`
   padding-top: 2rem;

@@ -27,7 +27,6 @@ export default class Gallery extends Component {
     const { showLightbox, imageIndex } = this.state;
     return (
     <section>
-      <BackArrow />
       <Grid>
         {comicFirstImages.map((image, index) => (
          <Tile

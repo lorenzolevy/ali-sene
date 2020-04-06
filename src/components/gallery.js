@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 
-import BackArrow from './back-arrow'
+
 import FsLightbox from 'fslightbox-react'
 import Grid from './grid'
 import Tile from './tile'
@@ -27,7 +27,7 @@ export default class Gallery extends Component {
     const { showLightbox, imageIndex } = this.state;
     return (
      <Fragment>
-       <BackArrow />
+       
       <Grid>
         {galImages.map((image, index) => (
          <Tile
@@ -42,7 +42,6 @@ export default class Gallery extends Component {
         toggler={showLightbox}
         sources={galImages.map(image=>image.node.publicURL)}
         sourceIndex={imageIndex}
-        loadOnlyCurrentSource={true}
         />
         {console.log(galImages.map(image=>image.node.publicURL))}
       </Fragment>

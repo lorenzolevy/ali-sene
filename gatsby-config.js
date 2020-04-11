@@ -2,8 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `Ali Sene Art`,
     description: `A collection of illustrations, animations, and comics by Ali Sene.`,
-    image: `/static/ali-icon.png`,
     author: `@lorenzolevy`,
+    image: `/ali-icon.png`,
     url: `https://www.aliseneart.com`,
   },
   plugins: [

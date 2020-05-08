@@ -1,9 +1,10 @@
 module.exports = {
   siteMetadata: {
     title: `Ali Sene Art`,
-    description: `A collection of illustrations, animations, and comics by Ali Sene.`,
-    image: `/static/ali-icon.png`,
+    description: `I am a digital artist. I have been drawing digitally for six years now. I make comics, backgrounds, and commissioned character pieces. I am based in Los Angeles.`,
     author: `@lorenzolevy`,
+    image: `/metaimage.jpg`,
+    keywords: "comics, illustrations, commission, commission art, los angeles artist, artist, ali sene",
     url: `https://www.aliseneart.com`,
   },
   plugins: [

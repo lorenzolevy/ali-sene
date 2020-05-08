@@ -20,13 +20,15 @@ function SEO({ description, lang, meta, title }) {
             description
             author
             image
+            keywords
             url
           }
         }
       }
     `
   )
-
+ 
+  const keywords = site.siteMetadata.keywords
   const metaDescription = description || site.siteMetadata.description
   const image = `${site.siteMetadata.url}${site.siteMetadata.image}`
 
@@ -41,6 +43,10 @@ function SEO({ description, lang, meta, title }) {
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          name: `keywords`,
+          content: keywords,
         },
         {
           property: `og:title`,
@@ -74,6 +80,14 @@ function SEO({ description, lang, meta, title }) {
           name: "image",
           property: "og:image",
           content: image,
+        },
+        {
+          name: "robots",
+          content: "index,follow",
+        },
+        {
+          name: "author",
+          content: "@lorenzolevy",
         },
       ].concat(meta)}
     />

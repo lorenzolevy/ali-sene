@@ -5,7 +5,7 @@ module.exports = {
     author: `@lorenzolevy`,
     image: `/metaimage.jpg`,
     keywords: "comics, illustrations, commission, commission art, los angeles artist, artist, ali sene",
-    url: `https://www.aliseneart.com`,
+    url: `https://www.aliseneart.live`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,
